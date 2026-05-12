@@ -1,4 +1,4 @@
-# Problem Solver v6.0
+# Problem Solver / 事儿通 v6.0
 
 A universal framework for structured problem analysis and resolution.
 Walk the complete journey from understanding to verified outcome.

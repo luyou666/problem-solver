@@ -1,4 +1,4 @@
-# Problem Solver v6.0
+# Problem Solver / 事儿通 v6.0
 
 它诞生只有一个事儿，帮你解决，不知道怎么下手的问题！
 

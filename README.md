@@ -1,33 +1,53 @@
 # Problem Solver v6.0
 
-A universal framework for structured problem analysis and resolution. Walk the complete journey from understanding to verified outcome.
+通用结构化问题分析与解决框架。从理解问题到验证结果，走完完整闭环。
 
-## Features
+## 核心理念
 
-- **Precheck → P0a → P0b → P1 → P2 → P3 → P3.5 → P4 → P5** phased workflow
-- **R0–R3 Risk Level system** with clear authorization rules
-- **Critical Incident Exception** for production outages and security breaches
-- **Low-Risk Continuous Mode** for routine problems
-- **Break & Wait Protocol** with Ambiguous Response Handling
-- **Flexible Adaptation Guide** for scenario-specific flows
+- 先理解再行动 — 搞清问题本质，而非急于求解
+- 结构化但不僵化 — 根据复杂度和紧急度灵活调整
+- 迭代优于完美 — 先交付可用方案，再持续精进
+- 知己所不知 — 能力边界之外，果断承认无法解决
+- 重要结论需要证据 — 诊断、安全建议、版本相关声明必须有出处
 
-## Usage
+## 完整流程
 
-Load this skill into any LLM agent to give it a structured problem-solving framework. The skill defines:
+```
+Precheck → P0a 问题框架 → P0b 约束与目标 → P1 信息收集 → P2 方案架构
+                                                    ↓
+                                              P3 执行蓝图 → P3.5 执行 → P4 验证 → P5 评估
+```
 
-- When to ask questions vs. when to act
-- Risk classification for every action
-- Authorization gates for state-changing operations
-- Verification and iteration loops
-- Knowledge capture workflows
+## 风险等级体系 (R0–R3)
 
-## Examples
+| 等级 | 标签 | 说明 |
+|------|------|------|
+| R0 | 只读 | 查看文件、检查日志、搜索代码 — Agent 可自由执行 |
+| R1 | 本地 | 本地测试、不接触生产环境/外部服务/数据库 — 确认框架后执行 |
+| R2 | 状态变更可逆 | 修改文件、更新配置、安装包、重启服务 — 需每步用户明确批准 |
+| R3 | 高风险 | 删除数据、修改生产系统、安全/支付配置变更 — 需完整可见性+回滚方案 |
 
-The skill includes three filled templates:
-1. Production 504 Timeouts (🔴 Critical Incident)
-2. Message Queue Selection (🟡 Architecture Decision)
-3. Learning Rust (🟢 Learning Plan)
+## 场景适配
 
-## Version
+| 场景 | 流程 |
+|------|------|
+| 🔴 紧急事故 | Immediate Triage → Safe R0 诊断 → P3 → P3.5 → P4 |
+| 🟡 技术选型 | P0a→P0b→P1→P2→P5 |
+| 🟡 Bug 调试 | P0a→P0b→P1(快速)→P3→P3.5→P4 |
+| 🟢 系统设计 / 学习规划 | 完整流程 |
+| 低风险本地调试 | P0-lite → 本地证据 → 假设 → R0/R1 检查 → 修复建议 → P4 |
 
-v6.0 — Full risk system, softened P1 research rules, complete P3 Risk Level annotations.
+## 关键安全规则
+
+- P0a/P0b/P2 后必须 BREAK 等待用户确认
+- P2 批准 ≠ R2/R3 执行授权
+- 用户未回复 ≠ 同意
+- 只读诊断可不等确认直接提供（紧急场景）
+
+## 许可证
+
+MIT License
+
+---
+
+适用于 AI 助手和人类协作者。可用于日常排障、技术选型、架构设计、学习规划等场景。
